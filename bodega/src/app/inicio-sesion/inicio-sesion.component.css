@@ -1,0 +1,10 @@
+#caja{
+    margin: auto;
+    width: 50%;
+    margin-top: 18%;
+    color: white;
+    font-family: 'Sansita Swashed', cursive;
+}
+input, label{
+    color: white;
+}
