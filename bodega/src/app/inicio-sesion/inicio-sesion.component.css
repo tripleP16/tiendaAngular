@@ -8,3 +8,8 @@
 input, label{
     color: white;
 }
+
+.error{
+    font-weight: bold;
+    background-color: white;
+}
