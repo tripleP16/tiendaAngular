@@ -1,43 +1,30 @@
 import { Injectable } from '@angular/core';
 import {HttpServiceService} from './http-service.service';
-import { Response } from '@angular/http';
 import {Usuario} from '../models/Usuario';
-import { Http } from '@angular/http';
 import 'rxjs/Rx';
-import { map } from 'rxjs/operators';
+
 
 @Injectable()
 export class DataService {
-  public usuarios: Usuario[] = [];
+  user: Usuario = new Usuario() ;
+  mensaje:string ; 
+
 
   constructor( private http: HttpServiceService){ }
 
- 
+  iniciarSesion(contrasena:string, email:string){
+    this.user.email = email; 
+    this.user.password = contrasena; 
+    this.http.obtenerUsuario(this.user).subscribe(datos => {
+      let aux = JSON.parse(datos['_body']);
+      if(aux['resultado']=='OK'){
+        this.user.id =  aux['user'];
+      }
 
+      this.mensaje = aux['mensaje'];
+    })
 
-    getUsers(){
-      let check : boolean  = false ;
-       this.http.obtenerUsuarios().subscribe( (data: any)  => {
-        this.usuarios = data;
-      })
-     
-    }
-
-  
-
-  validUsers(email:string, password:string){
-    let check: boolean = false; 
-    for (let i = 0; i < this.usuarios['usuarios'].length; i++) {
-     if(email == this.usuarios['usuarios'][i]['email'] && password == this.usuarios['usuarios'][i]['contrasena']){
-       check = true;
-     }
-      
-    }
-
-    return check ;
-  
   }
-
  
 
 }

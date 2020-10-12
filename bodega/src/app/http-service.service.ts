@@ -8,11 +8,12 @@ import { from } from 'rxjs';
   providedIn: 'root'
 })
 export class HttpServiceService {
+  url = 'http://localhost/tiendaAngular/bodega/src/php/';
 
   constructor(private http:Http) { }
 
-  obtenerUsuarios(){
-    return this.http.get('https://bodega-22aa3.firebaseio.com/.json')
-    .map((response: Response)=> response.json());
-    }
+  obtenerUsuario(user:Usuario){
+    return this.http.post(`${this.url}iniciarSesion.php`, JSON.stringify(user));
+  }
+
 }

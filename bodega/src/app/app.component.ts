@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {InicioSesionComponent} from './inicio-sesion/inicio-sesion.component';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,4 +7,9 @@ import {InicioSesionComponent} from './inicio-sesion/inicio-sesion.component';
 })
 export class AppComponent {
   title = 'bodega';
+  constructor(private router:Router) {
+    this.router.navigate(['bodega'])
+  }
+  
+    
 }

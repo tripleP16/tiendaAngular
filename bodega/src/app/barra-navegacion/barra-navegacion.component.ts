@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-barra-navegacion',
+  selector: 'barra-navegacion',
   templateUrl: './barra-navegacion.component.html',
   styleUrls: ['./barra-navegacion.component.css']
 })

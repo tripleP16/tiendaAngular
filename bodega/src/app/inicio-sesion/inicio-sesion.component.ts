@@ -1,6 +1,6 @@
 import { Component} from '@angular/core';
 import { DataService } from '../data.service';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'inicio-sesion',
   templateUrl: './inicio-sesion.component.html',
@@ -10,26 +10,22 @@ export class InicioSesionComponent  {
   mensaje:string;
   
   Color:string = 'red';
-  constructor(private dataService: DataService) { }
-  enviarForm(form){
+  constructor(private dataService: DataService, private router:Router) { }
+  async enviarForm(form){
     if (form.valid){
-      let check :boolean ;
-      this.dataService.getUsers(); 
-      this.Color = 'Blue'; 
-      this.mensaje = "Comprobando datos......"
+      this.dataService.iniciarSesion(form.value.contrasena, form.value.email);
       setTimeout(() => {
-        check = this.dataService.validUsers(form.value.email, form.value.contrasena);
-        if(check ){
-          this.Color = 'green'; 
-          this.mensaje = 'Iniciando Sesion'; 
+        if(this.dataService.user.id !=null){
+          this.router.navigate(['bodega'])
         }else{
-          this.Color = 'red'; 
-          this.mensaje = 'El email o la contraseña no es valido';
+          this.mensaje =  this.dataService.mensaje;
         }
       }, 1000);
-      
     }else {
-      this.mensaje = "Por favor revise los campos "
+      this.Color = 'red'; 
+      this.mensaje = 'Error en el email o en la contraseña';
     }
+    
   }
+ 
 }
