@@ -8,11 +8,11 @@
                 <div class="col s8 left">
                     <h5>Catalogo de Producto</h5>
                 </div>
-                <div class="col s4 right">
+                <div class="col s4 right form-group ">
                     <div class="input-field col s12">
                         <i class="material-icons prefix">search</i>
-                        <input type="text" name="buscar">
-                        <label for="buscar">¿Que estas buscando?</label>
+                        <input type="text"  type="text" id="descripcion"  class="form-control input-filtro" (input)="filtrarCatalogo(filtro.value)" #filtro>
+                        <label for="descripcion">¿Que estas buscando?</label>
                     </div>
                 </div>
                 

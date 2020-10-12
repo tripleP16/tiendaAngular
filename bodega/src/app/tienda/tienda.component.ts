@@ -3,7 +3,7 @@ import {BarraNavegacionComponent} from '../barra-navegacion/barra-navegacion.com
 import {Producto} from 'src/models/Producto';
 import { DataService } from '../data.service';
 import { Router } from '@angular/router';
- 
+import { FormGroup, FormControl, Validators } from '@angular/forms'; 
 @Component({
   selector: 'tienda',
   templateUrl: './tienda.component.html',
@@ -19,5 +19,7 @@ export class TiendaComponent implements OnInit {
       this.productos =  this.dataService.productos;
     }, 250);
   }
-
+  filtrarCatalogo(filtro:string){
+    this.productos = this.dataService.filtrarProducto(filtro);
+  }
 }

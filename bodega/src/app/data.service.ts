@@ -10,7 +10,8 @@ export class DataService {
   user: Usuario = new Usuario() ;
   mensaje:string ; 
   productos:Producto [] = [];
-
+  catalogo : Producto[]; //Crear arreglo de productos
+  
 
   constructor( private http: HttpServiceService){ }
 
@@ -38,6 +39,19 @@ export class DataService {
       }
     })
   }
+
+  public filtrarProducto(filtro:string){
+    this.productos
+    console.log(this.productos) 
+    filtro.toLowerCase(); 
+    let itemMatch : Producto[] = []; 
+    for (let i = 0; i < this.productos.length; i++) {
+      let nombre = this.productos[i].titulo.toLowerCase(); 
+      if(nombre.includes(filtro)){ 
+        itemMatch.push(this.productos[i])} 
+      }
+      return itemMatch; //Devolver el arreglo a la vista
+    }
  
 
 }
