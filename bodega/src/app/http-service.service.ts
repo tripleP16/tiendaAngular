@@ -16,4 +16,8 @@ export class HttpServiceService {
     return this.http.post(`${this.url}iniciarSesion.php`, JSON.stringify(user));
   }
 
+  obtenerInventario(){
+    return this.http.get(`${this.url}devolverBodega.php`);
+  }
+
 }

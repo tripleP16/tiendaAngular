@@ -6,3 +6,7 @@ h5{
     font-family: 'Sansita Swashed', cursive;
 }
 
+.imagen{
+    max-width: 300px !important;
+    height: 200px !important;
+}

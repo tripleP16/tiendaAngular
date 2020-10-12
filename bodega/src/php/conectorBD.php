@@ -38,6 +38,13 @@ class conectorBD{
         $result = $select->get_result();
         return $result ;
     }
+
+    function obtenerBodega(){
+      $select = $this->conexion->prepare('SELECT * FROM productos'); 
+      $select->execute();
+      $result = $select->get_result();
+      return $result ;
+    }
     
   
 }
