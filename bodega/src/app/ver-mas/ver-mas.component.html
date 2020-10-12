@@ -1,0 +1,26 @@
+<div class="row" id="contenedor">
+    <div class="col s2"></div>
+    <div class="col s8">     
+        <barra-navegacion></barra-navegacion>
+        <br>
+        <div id="container">
+            <h3>Detalles</h3>
+            <hr>
+            <div class="row">
+                <div class="col s6">
+                    <h4>{{producto.titulo}}</h4>
+                    <img src="{{producto.src}}" class="imagen">
+                </div>
+                <div class="col s6 ">
+                    <br>
+                    <br>
+                    <h5><strong>Precio : </strong>${{producto.precio}}</h5>
+                    <h5><strong>Unidades Disponibles :</strong> {{producto.cantidad}}</h5>
+                </div>
+            </div>
+            <a class="waves-effect waves-light btn  grey lighten-1" routerLink='/bodega' >Atras</a>
+        </div>
+        
+    </div>
+    <div class="col s2"></div>
+</div>

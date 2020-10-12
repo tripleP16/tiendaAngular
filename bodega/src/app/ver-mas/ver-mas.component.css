@@ -1,14 +1,14 @@
 #container{
     background-color: white;
     padding: 2%;
+    
 }
-h5{
+h3, h4, h5{
     font-family: 'Sansita Swashed', cursive;
 }
-
 .imagen{
-    max-width: 300px !important;
-    height: 200px !important;
+    width: 400px;
 }
-
-
+a{
+    color: black;
+}

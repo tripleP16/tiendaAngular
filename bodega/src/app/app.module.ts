@@ -12,13 +12,15 @@ import { DataService } from './data.service';
 import { TiendaComponent } from './tienda/tienda.component';
 import { BarraNavegacionComponent } from './barra-navegacion/barra-navegacion.component';
 import { CarritoComponent } from './carrito/carrito.component';
+import { VerMasComponent } from './ver-mas/ver-mas.component';
 @NgModule({
   declarations: [
     AppComponent,
     InicioSesionComponent,
     TiendaComponent,
     BarraNavegacionComponent,
-    CarritoComponent
+    CarritoComponent,
+    VerMasComponent
   ],
   imports: [
     BrowserModule,
