@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import {Usuario} from '../models/Usuario';
+import {Producto} from '../models/Producto';
 import 'rxjs/Rx';
 import { map } from 'rxjs/operators';
 import { from } from 'rxjs';
@@ -18,6 +19,10 @@ export class HttpServiceService {
 
   obtenerInventario(){
     return this.http.get(`${this.url}devolverBodega.php`);
+  }
+
+  agregarAlCarro(producto:Producto){
+    return this.http.post(`${this.url}agregarCarro.php`, JSON.stringify(producto) );
   }
 
 }

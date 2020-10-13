@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'bodega';
   constructor(private router:Router) {
-    this.router.navigate(['bodega'])
+    this.router.navigate(['login'])
   }
   
     

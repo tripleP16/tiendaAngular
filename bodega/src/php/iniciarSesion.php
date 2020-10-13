@@ -3,6 +3,7 @@
     header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
     require('conectorBD.php');
     error_reporting(0);
+    session_start();
     $json = file_get_contents('php://input', true);
     $params = json_decode($json);
     $con = new ConectorBD('localhost', 'user_prueba', '123456P');
@@ -15,6 +16,7 @@
                 $response['resultado']="Not ok";
             }else{
                 if(password_verify($params->password, $usuario['contrasena'])){
+                    
                     $_SESSION['id'] = $usuario['id'];
                     $response['user']= $usuario['id'];
                     $response['resultado']="OK";

@@ -45,6 +45,12 @@ class conectorBD{
       $result = $select->get_result();
       return $result ;
     }
+
+    function agregarCarro($usuario_id, $producto_id, $cantidad){
+      $insert = $this->conexion->prepare('INSERT INTO carrito (usuarios_id,productos_id,cantidad) VALUES(?,?,?)'); 
+      $insert->bind_param("iii", $usuario_id, $producto_id, $cantidad); 
+      $insert->execute();
+    }
     
   
 }

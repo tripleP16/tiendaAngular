@@ -22,4 +22,9 @@ export class TiendaComponent implements OnInit {
   filtrarCatalogo(filtro:string){
     this.productos = this.dataService.filtrarProducto(filtro);
   }
+
+  agregarCarro(producto:Producto){
+    this.dataService.agregarCarro(producto);
+    
+  }
 }

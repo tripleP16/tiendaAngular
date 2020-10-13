@@ -4,4 +4,6 @@ export class Producto{
     cantidad : number; 
     src: string ; 
     precio : number; 
+    cantCarro:number;
+    id_user:number;
 }

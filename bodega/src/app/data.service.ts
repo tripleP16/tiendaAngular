@@ -29,6 +29,16 @@ export class DataService {
 
   }
 
+  agregarCarro(producto:Producto){
+    producto.id_user = this.user.id;
+    this.http.agregarAlCarro(producto).subscribe(datos => {
+      let aux = JSON.parse(datos['_body']);
+      if(aux['resultado']=='OK'){
+        console.log("OK");
+      }
+    })
+  }
+
   obtenerProductos(){
     this.http.obtenerInventario().subscribe(datos => {
       let aux = JSON.parse(datos['_body']);
@@ -50,8 +60,10 @@ export class DataService {
       if(nombre.includes(filtro)){ 
         itemMatch.push(this.productos[i])} 
       }
-      return itemMatch; //Devolver el arreglo a la vista
+      return itemMatch; 
     }
+
+
  
 
 }
