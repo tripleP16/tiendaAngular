@@ -15,6 +15,7 @@ export class TiendaComponent implements OnInit {
 
   ngOnInit(): void {
     this.dataService.obtenerProductos();
+    this.dataService.obtenerCarro();
     setTimeout(() => {
       this.productos =  this.dataService.productos;
     }, 250);

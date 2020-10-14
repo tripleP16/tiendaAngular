@@ -10,7 +10,8 @@ export class DataService {
   user: Usuario = new Usuario() ;
   mensaje:string ; 
   productos:Producto [] = [];
-  catalogo : Producto[]; //Crear arreglo de productos
+  catalogo : Producto[]; 
+  numeroItems:number = 0; 
   
 
   constructor( private http: HttpServiceService){ }
@@ -35,6 +36,7 @@ export class DataService {
       let aux = JSON.parse(datos['_body']);
       if(aux['resultado']=='OK'){
         console.log("OK");
+        this.numeroItems ++ ; 
       }
     })
   }
@@ -65,7 +67,8 @@ export class DataService {
 
     obtenerCarro(){
       this.http.verCarro(this.user).subscribe(datos =>{
-        console.log(JSON.parse(datos['_body']));
+        let aux = JSON.parse(datos['_body'])
+        this.numeroItems = aux['productos'].length;
       })
     }
 
