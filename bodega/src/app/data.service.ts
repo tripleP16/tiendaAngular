@@ -63,6 +63,11 @@ export class DataService {
       return itemMatch; 
     }
 
+    obtenerCarro(){
+      this.http.verCarro(this.user).subscribe(datos =>{
+        console.log(JSON.parse(datos['_body']));
+      })
+    }
 
  
 

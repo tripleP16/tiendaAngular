@@ -18,6 +18,8 @@ export class TiendaComponent implements OnInit {
     setTimeout(() => {
       this.productos =  this.dataService.productos;
     }, 250);
+
+    
   }
   filtrarCatalogo(filtro:string){
     this.productos = this.dataService.filtrarProducto(filtro);
@@ -25,6 +27,6 @@ export class TiendaComponent implements OnInit {
 
   agregarCarro(producto:Producto){
     this.dataService.agregarCarro(producto);
-    
+    this.dataService.obtenerCarro();
   }
 }

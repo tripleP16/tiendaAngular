@@ -25,4 +25,7 @@ export class HttpServiceService {
     return this.http.post(`${this.url}agregarCarro.php`, JSON.stringify(producto) );
   }
 
+  verCarro(user:Usuario){
+    return this.http.post(`${this.url}devolverCarro.php`, JSON.stringify(user));
+  }
 }
