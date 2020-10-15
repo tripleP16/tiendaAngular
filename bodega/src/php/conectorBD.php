@@ -61,6 +61,22 @@ class conectorBD{
       return $result;
     }
     
+    function pagar($usuario_id, $producto_id){
+      $update = $this->conexion->prepare('UPDATE productos SET cantidad = cantidad - (
+        SELECT sum(carrito.cantidad)  FROM carrito JOIN productos ON productos.id = carrito.productos_id WHERE usuarios_id = ? AND productos_id = ? GROUP by productos_id
+        ) WHERE id = ?;');
+      $update->bind_param("iii", $usuario_id, $producto_id, $producto_id);
+      $update->execute();
+
+    }
+
+    function limpiarCarro($usuario_id){
+      $delete = $this->conexion->prepare('DELETE FROM carrito WHERE usuarios_id =?');
+      $delete->bind_param("i", $usuario_id); 
+      $delete->execute();
+    }
+
+
   
 }
 ?>

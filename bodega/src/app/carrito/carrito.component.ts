@@ -8,10 +8,14 @@ import { Router } from '@angular/router';
 })
 export class CarritoComponent implements OnInit {
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService, private router:Router) { }
 
   ngOnInit(): void {
     this.dataService.obtenerCarro();
   }
-
+  pagar(){
+    this.dataService.pagar();
+    this.router.navigate(['bodega']);
+    
+  }
 }

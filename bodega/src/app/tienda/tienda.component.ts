@@ -26,7 +26,12 @@ export class TiendaComponent implements OnInit {
   }
 
   agregarCarro(producto:Producto){
-    this.dataService.agregarCarro(producto);
-    this.dataService.obtenerCarro();
+    if(producto.cantidad > 0 && producto.cantCarro < producto.cantidad){
+      this.dataService.agregarCarro(producto);
+      this.dataService.obtenerCarro();
+    }else{
+      alert("No hay suficiente existencia");
+    }
+    
   }
 }

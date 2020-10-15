@@ -34,6 +34,7 @@ export class DataService {
 
   agregarCarro(producto:Producto){
     producto.id_user = this.user.id;
+    this.buscarProducto(producto.id, producto.cantCarro);
     this.http.agregarAlCarro(producto).subscribe(datos => {
       let aux = JSON.parse(datos['_body']);
       if(aux['resultado']=='OK'){
@@ -51,6 +52,15 @@ export class DataService {
         
       }
     })
+  }
+
+  buscarProducto(id:number, cantidadRestar:number){
+    for (let i = 0; i < this.productos.length; i++) {
+      if(this.productos[i].id == id){
+        this.productos[i].cantidad -= cantidadRestar;
+      }
+      
+    }
   }
 
   public filtrarProducto(filtro:string){
@@ -75,7 +85,11 @@ export class DataService {
         this.obtenerTotal();
       })
     }
-
+    pagar(){
+      this.http.pagar(this.user).subscribe();
+      this.obtenerCarro();
+      this.total = 0;
+    }
     obtenerTotal(){
       for (let i = 0; i < this.carrito.length; i++) {
         this.total += this.carrito[i].total_producto;

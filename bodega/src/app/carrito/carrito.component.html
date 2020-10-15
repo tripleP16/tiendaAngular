@@ -22,7 +22,7 @@
                     <div class="row">
                         <h5>Total : $ {{this.dataService.total}}</h5>
                         <div class="col s4">
-                            <button class="waves-effect waves-light btn  green darken-4">Pagar</button>
+                            <button class="waves-effect waves-light btn  green darken-4" (click)="pagar()">Pagar</button>
                         </div> 
                         <div class="col s6">
                             <button class="waves-effect waves-light btn  red darken-4" [routerLink]="['/bodega']">Cancelar</button>
