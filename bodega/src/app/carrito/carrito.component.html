@@ -1,1 +1,36 @@
-<p>carrito works!</p>
+<div class="row" id="contenedor">
+    <div class="col s2"></div>
+    <div class="col s8">
+        <barra-navegacion></barra-navegacion>
+        <br>
+        <div id="container">
+            <h3>Detalles</h3>
+            <hr>
+            <div class="row">
+                <div class="col s6 left">
+                    <ul class="collection">
+                        <li class="collection-item avatar" *ngFor="let producto of this.dataService.carrito">
+                          <img src="{{producto.imagen}}" alt="" class="circle">
+                          <span class="title">{{producto.titulo}}</span>
+                          <p><strong>Unidades</strong> {{producto.cantidadTotal}} <br>
+                             <strong>Subtotal: $</strong> {{producto.total_producto}}
+                          </p>
+                        </li>
+                      </ul>
+                </div>
+                <div class="col s4">
+                    <div class="row">
+                        <h5>Total : $ {{this.dataService.total}}</h5>
+                        <div class="col s4">
+                            <button class="waves-effect waves-light btn  green darken-4">Pagar</button>
+                        </div> 
+                        <div class="col s6">
+                            <button class="waves-effect waves-light btn  red darken-4" [routerLink]="['/bodega']">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s2"></div>
+</div>

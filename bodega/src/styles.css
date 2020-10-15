@@ -15,3 +15,7 @@
   position: fixed;
   overflow-y: scroll;
 }
+#container{
+  background-color: white;
+  padding: 2%;
+}

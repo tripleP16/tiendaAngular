@@ -3,6 +3,7 @@ import {HttpServiceService} from './http-service.service';
 import {Usuario} from '../models/Usuario';
 import 'rxjs/Rx';
 import { Producto } from 'src/models/Producto';
+import { ProductoCarro } from 'src/models/ProductoCarro';
 
 
 @Injectable()
@@ -12,7 +13,8 @@ export class DataService {
   productos:Producto [] = [];
   catalogo : Producto[]; 
   numeroItems:number = 0; 
-  
+  carrito:ProductoCarro[]=[];
+  total:number = 0;
 
   constructor( private http: HttpServiceService){ }
 
@@ -68,8 +70,17 @@ export class DataService {
       this.http.verCarro(this.user).subscribe(datos =>{
         let aux = JSON.parse(datos['_body'])
         this.numeroItems = aux['productos'].length;
-        console.log( aux['productos'].length)
+        this.carrito = aux['productos'];
+        this.total = 0;
+        this.obtenerTotal();
       })
+    }
+
+    obtenerTotal(){
+      for (let i = 0; i < this.carrito.length; i++) {
+        this.total += this.carrito[i].total_producto;
+        
+      }
     }
 
  

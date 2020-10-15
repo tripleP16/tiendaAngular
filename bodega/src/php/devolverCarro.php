@@ -13,6 +13,9 @@ if($con->initConexion('bodega') == 'OK' && $params !=null){
         $response['productos'][$i]['productoId'] = $producto['productos_id'];
         $response['productos'][$i]['cantidadTotal'] = $producto['cantidad_total'];
         $response['productos'][$i]['total_producto'] = $producto['total_producto'];
+        $response['productos'][$i]['precio']= $producto['precio']; 
+        $response['productos'][$i]['imagen']=$producto['imagen'];
+        $response['productos'][$i]['titulo']=$producto['titulo'];
         $i++;
     }
 

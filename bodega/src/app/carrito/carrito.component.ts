@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { DataService } from '../data.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'carrito',
   templateUrl: './carrito.component.html',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarritoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
+    this.dataService.obtenerCarro();
   }
 
 }

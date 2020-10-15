@@ -53,7 +53,7 @@ class conectorBD{
     }
 
     function obtenerCarroDeCompras($usuario_id){
-      $select = $this->conexion->prepare('SELECT usuarios_id, sum(carrito.cantidad) cantidad_total, productos_id, sum(carrito.cantidad) * precio total_producto, precio FROM carrito JOIN productos ON productos.id = carrito.productos_id WHERE usuarios_id = ? GROUP BY productos_id  ;
+      $select = $this->conexion->prepare('SELECT sum(carrito.cantidad) cantidad_total, productos_id, sum(carrito.cantidad) * precio total_producto, precio, imagen, titulo FROM carrito JOIN productos ON productos.id = carrito.productos_id WHERE usuarios_id = ? GROUP BY productos_id  ;
       '); 
       $select->bind_param("i", $usuario_id); 
       $select->execute(); 
