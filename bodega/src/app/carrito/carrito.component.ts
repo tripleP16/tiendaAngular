@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-carrito',
+  selector: 'carrito',
   templateUrl: './carrito.component.html',
   styleUrls: ['./carrito.component.css']
 })

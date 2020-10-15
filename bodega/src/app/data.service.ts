@@ -36,7 +36,6 @@ export class DataService {
       let aux = JSON.parse(datos['_body']);
       if(aux['resultado']=='OK'){
         console.log("OK");
-        this.numeroItems ++ ; 
       }
     })
   }
@@ -69,6 +68,7 @@ export class DataService {
       this.http.verCarro(this.user).subscribe(datos =>{
         let aux = JSON.parse(datos['_body'])
         this.numeroItems = aux['productos'].length;
+        console.log( aux['productos'].length)
       })
     }
 
