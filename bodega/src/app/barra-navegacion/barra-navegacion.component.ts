@@ -10,7 +10,7 @@ import { HostListener } from '@angular/core';
 })
 export class BarraNavegacionComponent implements OnInit {
   numeroDeItems:number  = 0;
-  constructor(private dataService: DataService, private router:Router) { }
+  constructor(public dataService: DataService, private router:Router) { }
 
   ngOnInit(): void {
  
