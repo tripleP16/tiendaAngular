@@ -78,17 +78,25 @@ export class DataService {
 
     obtenerCarro(){
       this.http.verCarro(this.user).subscribe(datos =>{
-        let aux = JSON.parse(datos['_body'])
-        this.numeroItems = aux['productos'].length;
-        this.carrito = aux['productos'];
-        this.total = 0;
-        this.obtenerTotal();
+        console.log(datos['_body']);
+        if(datos['_body'] != 'null'){
+          let aux = JSON.parse(datos['_body'])
+          this.numeroItems = aux['productos'].length;
+          this.carrito = aux['productos'];
+          this.total = 0;
+          this.obtenerTotal();
+        }else{
+          this.total = 0;
+          this.numeroItems = 0;
+          this.carrito = [];
+        }
+       
       })
     }
     pagar(){
       this.http.pagar(this.user).subscribe();
       this.obtenerCarro();
-      this.total = 0;
+      
     }
     obtenerTotal(){
       for (let i = 0; i < this.carrito.length; i++) {

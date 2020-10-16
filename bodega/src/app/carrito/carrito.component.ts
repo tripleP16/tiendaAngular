@@ -7,15 +7,19 @@ import { Router } from '@angular/router';
   styleUrls: ['./carrito.component.css']
 })
 export class CarritoComponent implements OnInit {
-
-  constructor(private dataService: DataService, private router:Router) { }
+  total:number ;
+  constructor(public dataService: DataService, private router:Router) { }
 
   ngOnInit(): void {
     this.dataService.obtenerCarro();
   }
   pagar(){
+    
     this.dataService.pagar();
-    this.router.navigate(['bodega']);
+    setTimeout(() => {
+      this.router.navigate(['bodega']);
+    }, 250);
+   
     
   }
 }
